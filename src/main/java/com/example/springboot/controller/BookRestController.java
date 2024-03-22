@@ -51,4 +51,9 @@ public class BookRestController {
             return new ResponseEntity<>("Not found", HttpStatus.NOT_FOUND);
         }
     }
+    // GET : http://localhost:8081/api/price/10000
+    @GetMapping("/price/{price}")
+    public ResponseEntity<?> getPrice(@PathVariable int price){
+          return new ResponseEntity<>(repository.getByPrice(price), HttpStatus.OK);
+    }
 }

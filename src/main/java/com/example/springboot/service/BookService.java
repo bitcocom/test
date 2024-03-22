@@ -20,8 +20,8 @@ public class BookService {
         return list;
     }
 
-    public Book detail(Long id){
-        Optional<Book> optional=repository.findById(id);
+    public Book detail(int price){
+        Optional<Book> optional=repository.findByPrice(price);
         return optional.orElse(null);
     }
 }

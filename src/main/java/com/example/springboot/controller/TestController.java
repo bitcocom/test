@@ -39,9 +39,9 @@ public class TestController {
         return "list"; // list.html
     }
 
-    @GetMapping("/detail/{id}")
-    public String detail(@PathVariable Long id, Model model){
-         Book book=bookService.detail(id);
+    @GetMapping("/detail/{price}")
+    public String detail(@PathVariable int price, Model model){
+         Book book=bookService.detail(price);
         model.addAttribute("book", book);
          return "detail"; // detail.html
     }
