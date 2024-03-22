@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
@@ -36,5 +37,12 @@ public class TestController {
         List<Book> list=bookService.list();
         model.addAttribute("list", list);
         return "list"; // list.html
+    }
+
+    @GetMapping("/detail/{id}")
+    public String detail(@PathVariable Long id, Model model){
+         Book book=bookService.detail(id);
+        model.addAttribute("book", book);
+         return "detail"; // detail.html
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookService {
@@ -19,4 +20,8 @@ public class BookService {
         return list;
     }
 
+    public Book detail(Long id){
+        Optional<Book> optional=repository.findById(id);
+        return optional.orElse(null);
+    }
 }
